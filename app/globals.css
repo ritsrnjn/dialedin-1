@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Paper palette — warm cream / drafting paper */
+  --color-paper: #efe7d5;
+  --color-paper-soft: #f3ecdc;
+  --color-paper-deep: #e7decb;
+
+  /* Ink */
+  --color-ink: #1a1a1f;
+  --color-ink-muted: #4a4a52;
+  --color-ink-faint: #8a8478;
+
+  /* Accent — draftsman orange */
+  --color-mark: #d14f2c;
+  --color-mark-soft: #e16a4a;
+
+  /* Rules / dashed lines */
+  --color-rule: #c6bca5;
+  --color-rule-soft: #d4cbb6;
+
+  /* Stable green for status (rare) */
+  --color-stable: #4d7a3a;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+}
+
+* {
+  border-color: var(--color-rule);
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-mark);
+  color: var(--color-paper);
+}
+
+/* Display family — slabby typewriter feel */
+.font-display {
+  font-family: var(--font-display), "Courier New", ui-monospace, monospace;
+  letter-spacing: -0.01em;
+}
+
+/* Mono label utility */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Tabular numerics */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Dashed rule used across cards */
+.dashed-rule {
+  border: 1px dashed var(--color-rule);
+}
+
+/* Diagonal hatched placeholder (used in hero box) */
+.bg-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0,
+    transparent 10px,
+    rgba(198, 188, 165, 0.35) 10px,
+    rgba(198, 188, 165, 0.35) 11px
+  );
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-mark);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: var(--color-rule); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
